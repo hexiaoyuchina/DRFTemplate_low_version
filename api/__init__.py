@@ -22,7 +22,7 @@ def api_deco(api_msg):
 
             res = func(*args, **kwargs)
 
-            return
+            return res
         return deco
     return _wrapper
 

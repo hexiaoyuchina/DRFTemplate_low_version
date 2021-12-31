@@ -9,7 +9,7 @@ from common.common import Common
 
 
 class HxyViewSet(GenericViewSet, Common):
-    @list_route(methods=['GET'], url_path='get_all_data', serializer_class = serializers.AllDataSerializer)
+    @list_route(methods=['GET'], url_path='get_all_data')
     def get_all_data(self, request):
         douban = DoubanService()
         all_res = douban.get_all_data()
