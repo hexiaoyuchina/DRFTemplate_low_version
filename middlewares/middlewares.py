@@ -26,6 +26,12 @@ class RequestCacheMiddleware(object):
         is_agent = int(request.COOKIES.get('is_agent', 0))
         local.is_agent = is_agent
 
+        # 获取语言
+        language = request.COOKIES.get("django_language")
+        if language != 'en':
+            language = 'zh-hans'
+        request.LANGUAGE_CODE = language
+        local.language = language
 
 
 
