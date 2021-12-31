@@ -9,4 +9,7 @@ class Common(object):
             "msg": "操作成功",
             'data': data
         }
-        return Response(result)
+
+        res = Response(result)
+        res.set_cookie("cookie_flag", 1)
+        return res
