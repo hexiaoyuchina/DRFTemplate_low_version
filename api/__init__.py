@@ -21,9 +21,10 @@ def api_deco(api_msg):
                     kwargs['serializer_data'] = serializer_data
 
             res = func(*args, **kwargs)
-
+            print(api_msg)
             return res
         return deco
+
     return _wrapper
 
 
