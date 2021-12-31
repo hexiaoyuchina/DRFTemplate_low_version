@@ -1,6 +1,6 @@
 import uuid
 from .cache import local, init_local
-
+from django.conf import settings
 
 class RequestCacheMiddleware(object):
     """使用线程 ID 缓存 request 实例"""
@@ -33,7 +33,9 @@ class RequestCacheMiddleware(object):
         request.LANGUAGE_CODE = language
         local.language = language
 
-
-
-    def process_response(self,request, response):
-        pass
+    def process_response(self, request, response):
+        token = local.token
+        if token:
+            response.set_cookie(settings.TOKEN_NAME, token)
+        init_local()
+        return response

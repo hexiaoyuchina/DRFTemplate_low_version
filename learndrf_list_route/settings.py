@@ -129,3 +129,4 @@ STATIC_URL = '/static/'
 
 # 用于语言 cookie 的 cookie 名称
 LANGUAGE_COOKIE_NAME = 'django_language'
+TOKEN_NAME = 'my_token'
